@@ -13,6 +13,6 @@ kubectl wait --namespace ingress-nginx \
   --selector=app.kubernetes.io/component=controller \
   --timeout=120s
   
-sleep 60
+sleep 30
 kubectl port-forward --namespace=ingress service/ingress-nginx-controller 8080:80
 
