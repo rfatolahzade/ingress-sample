@@ -7,4 +7,12 @@ helm install ingress-nginx ingress-nginx \
 
 
 kubectl apply -f .
+
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+  
+  
 kubectl port-forward --namespace=ingress service/ingress-nginx-controller 8080:80
+
